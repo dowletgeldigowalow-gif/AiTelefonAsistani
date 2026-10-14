@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/baslikMetni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AI Telefon Asistanı"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/durumMetni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hazır değil"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/izinButonu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1) Erişilebilirlik iznini aç" />
+
+    <Button
+        android:id="@+id/mikrofonButonu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="2) Mikrofon iznini ver" />
+
+    <Button
+        android:id="@+id/baslatButonu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="3) Dinlemeyi başlat" />
+
+    <TextView
+        android:id="@+id/komutMetni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textSize="14sp" />
+
+</LinearLayout>
