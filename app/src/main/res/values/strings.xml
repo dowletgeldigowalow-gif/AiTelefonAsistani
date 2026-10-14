@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AI Telefon Asistanı</string>
+    <string name="erisilebilirlik_aciklama">Bu servis, söylediğiniz sesli komutları uygulamak için ekrandaki
+        düğmelere basabilir, metin alanlarına yazı yazabilir ve uygulamalar arasında gezinebilir.
+        Sadece siz etkinleştirdiğinizde çalışır ve istediğiniz zaman Ayarlar &gt; Erişilebilirlik
+        menüsünden kapatabilirsiniz.</string>
+</resources>
