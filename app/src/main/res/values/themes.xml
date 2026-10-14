@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.AiAsistan" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+</resources>
