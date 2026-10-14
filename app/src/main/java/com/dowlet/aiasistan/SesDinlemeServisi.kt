@@ -81,27 +81,26 @@ class SesDinlemeServisi : Service() {
     }
 
     private fun komutuIsle(metin: String) {
-        val apiAnahtari = BuildConfig.CLAUDE_API_KEY
-        if (apiAnahtari.isBlank()) {
-            dinlemeyeBasla()
-            return
+        val kucukMetin = metin.lowercase()
+        val servis = AsistanAccessibilityService.calisanOrnek
+
+        val eslesmeler = mapOf(
+            "whatsapp" to "com.whatsapp",
+            "youtube" to "com.google.android.youtube",
+            "instagram" to "com.instagram.android",
+            "kamera" to "com.android.camera2",
+            "ayarlar" to "com.android.settings",
+            "chrome" to "com.android.chrome"
+        )
+
+        for ((anahtarKelime, paketAdi) in eslesmeler) {
+            if (kucukMetin.contains(anahtarKelime)) {
+                servis?.uygulamaAc(paketAdi)
+                break
+            }
         }
 
-        val istemci = ClaudeApiClient(apiAnahtari)
-        istemci.komutYorumla(metin, object : ClaudeApiClient.Callback {
-            override fun onSonuc(eylem: String, hedef: String) {
-                val servis = AsistanAccessibilityService.calisanOrnek
-                when (eylem) {
-                    "uygulama_ac" -> servis?.uygulamaAc(hedef)
-                    "mesaj_yaz" -> servis?.odaklanmisKutuyaYaz(hedef)
-                }
-                dinlemeyeBasla()
-            }
-
-            override fun onHata(mesaj: String) {
-                dinlemeyeBasla()
-            }
-        })
+        dinlemeyeBasla()
     }
 
     override fun onDestroy() {
