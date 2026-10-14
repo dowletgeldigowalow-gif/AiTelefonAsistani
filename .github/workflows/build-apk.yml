@@ -1,0 +1,37 @@
+name: APK Derle
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  derle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu indir
+        uses: actions/checkout@v4
+
+      - name: Java kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Android SDK kur
+        uses: android-actions/setup-android@v3
+
+      - name: API anahtarını yaz
+        run: echo "CLAUDE_API_KEY=${{ secrets.CLAUDE_API_KEY }}" > local.properties
+
+      - name: Gradle kur
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: APK derle
+        run: gradle assembleDebug
+
+      - name: APK'yı yükle
+        uses: actions/upload-artifact@v4
+        with:
+          name: AiTelefonAsistani-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
